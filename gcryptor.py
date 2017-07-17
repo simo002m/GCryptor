@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from tkinter import font
 from tkinter import *
 

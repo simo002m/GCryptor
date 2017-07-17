@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=GCryptor
+GenericName=An easy-to-use graphical tool for encrypting and decrypting a file
+Exec=gcryptor
+Icon=/usr/share/icons/gcryptor_icon.gif
+Terminal=false
+Type=Application
+Categories=Accesories
