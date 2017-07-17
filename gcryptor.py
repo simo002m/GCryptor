@@ -7,7 +7,7 @@ window = Tk()
 window.title("GCryptor")
 window.geometry("1250x500+70+110")
 
-img = Image("photo", file="encrypt.gif")
+img = Image("photo", file="/usr/share/icons/gcryptor_icon.gif")
 window.tk.call("wm","iconphoto",window._w,img)
 
 def encrypt(filename): 
