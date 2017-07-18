@@ -62,24 +62,27 @@ def main_menu():
         def destroy_encrypt():
             encrypt_frame.destroy()
 
-        back = Button(encrypt_frame, height=4, width=10, bg="#a7a7a7", font=i12 , text="Back", command=lambda:[destroy_encrypt(), main_menu()]).grid(row=0, column=0)
+        back = Button(encrypt_frame, height=3, width=6, bg="#a7a7a7", font=i12 , text="Back", command=lambda:[destroy_encrypt(), main_menu()]).grid(row=0, column=0, sticky=N+W)
 
-        spacer1 = Frame(encrypt_frame, width=100).grid(row=0, column=1)
+        spacer1 = Frame(encrypt_frame, height=90).grid(row=1, column=0)
 
         def browse_filesystem():
             global filename
             filename = filedialog.askopenfilename()
+            filename_length = len(filename)
 
-            spacer2 = Frame(encrypt_frame, width=45).grid(row=0, column=4)
+            show_picked_file = Label(encrypt_frame, height=2, width=filename_length, anchor="w", bg="#a7a7a7", font=i11, text="%s: %s" % ("File",filename))
+            show_picked_file.grid(row=0, column=2, sticky=N)
             
-            show_picked_file = Label(encrypt_frame, height=2, width=30, anchor="w", bg="#a7a7a7", font=i11, text=filename)
-            show_picked_file.grid(row=0, column=5, sticky=N)
+            #Just so that it doesn't show a tiny grey block when the button is pressed but no file gets picked
+            if len(filename) <= 0:
+                show_picked_file.config(bg=window.cget("bg"))
 
         browse_button = Button(encrypt_frame, height=2, width=15, bg="#a7a7a7", font=i12, text="Look For The File", command=browse_filesystem)
-        browse_button.grid(row=0, column=2, sticky=N)
+        browse_button.grid(row=2, column=0, sticky=N)
 
-        do_encryption = Button(encrypt_frame, bg="#e49400", height=2, width=10, font=i12bold, text="Encrypt", command=lambda:encrypt(filename))
-        do_encryption.grid(row=0, column=3, sticky=N)
+        do_encryption = Button(encrypt_frame, bg="#e49400", height=2, width=10, font=i15, text="Encrypt", command=lambda:encrypt(filename))
+        do_encryption.grid(row=3, column=0, sticky=N+W)
 
     def decrypt_menu():
         decrypt_frame = Frame()
@@ -88,24 +91,28 @@ def main_menu():
         def destroy_decrypt():
             decrypt_frame.destroy()
 
-        back = Button(decrypt_frame, height=4, width=10, bg="#a7a7a7", font=i12 , text="Back", command=lambda:[destroy_decrypt(), main_menu()]).grid(row=0, column=0)
+        back = Button(decrypt_frame, height=3, width=6, bg="#a7a7a7", font=i12 , text="Back", command=lambda:[destroy_decrypt(), main_menu()]).grid(row=0, column=0, sticky=N+W)
 
-        spacer1 = Frame(decrypt_frame, width=100).grid(row=0, column=1)
+        spacer1 = Frame(decrypt_frame, height=90).grid(row=1, column=0)
 
         def browse_filesystem():
             global filename
             filename = filedialog.askopenfilename()
+            filename_length = len(filename)
 
-            spacer2 = Frame(decrypt_frame, width=45).grid(row=0, column=4)
+            show_picked_file = Label(decrypt_frame, height=2, width=filename_length, anchor="w", bg="#a7a7a7", font=i11, text="%s: %s" % ("File",filename))
+            show_picked_file.grid(row=0, column=2, sticky=N)
             
-            show_picked_file = Label(decrypt_frame, height=2, width=30, bg="#a7a7a7", font=i11, text=filename)
-            show_picked_file.grid(row=0, column=5, sticky=N)
+            #Just so that it doesn't show a tiny grey block when the button is pressed but no file gets picked
+            if len(filename) <= 0:
+                show_picked_file.config(bg=window.cget("bg"))
 
         browse_button = Button(decrypt_frame, height=2, width=15, bg="#a7a7a7", font=i12, text="Look For The File", command=browse_filesystem)
-        browse_button.grid(row=0, column=2, sticky=N)
-        
-        do_decryption = Button(decrypt_frame, bg="#e49400", height=2, width=10, font=i12bold, text="Decrypt", command=lambda:decrypt(filename))
-        do_decryption.grid(row=0, column=3, sticky=N)
+        browse_button.grid(row=2, column=0, sticky=N)
+
+        do_encryption = Button(decrypt_frame, bg="#e49400", height=2, width=10, font=i15, text="Decrypt", command=lambda:decrypt(filename))
+        do_encryption.grid(row=3, column=0, sticky=N+W)
+
     
     
     text = Label(main, height=5, width=90, bg="#a7a7a7", font=i11, text="""GCryptor - An easy-to-use graphical tool for encrypting and decrypting a file.
