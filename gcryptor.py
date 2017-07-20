@@ -105,7 +105,7 @@ def main_menu():
             
             #Just so that it doesn't show a tiny grey block when the button is pressed but no file gets picked
             if len(filename) <= 0:
-                show_picked_file.config(bg=window.cget("bg"))
+                show_picked_file.config(bg=window.cget("bg"),fg=window.cget("bg"))
 
         browse_button = Button(decrypt_frame, height=2, width=15, bg="#a7a7a7", font=i12, text="Look For The File", command=browse_filesystem)
         browse_button.grid(row=2, column=0, sticky=N)
