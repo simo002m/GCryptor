@@ -2,7 +2,7 @@
 GCryptor is an easy-to-use graphical tool for encrypting and decrypting a file. GCryptor is written in Python 3.
 
 If you're using this on Windows or MacOS then change "/usr/share/icons/gcryptor_icon.gif"
-to be "gcryptor_icon.gif" instead.
+to be "gcryptor_icon.gif" instead(in gcryptor.py).
 
 To install/configure it for Linux so that it appears as a command and even an application with
 an icon in the menu then type:
