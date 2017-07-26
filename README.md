@@ -16,8 +16,10 @@ sudo bash Linux/uninstall.sh
 If you run it without the sudo, it's probably not going to be configured properly. 
 
 
-Note:
-if you're using this application on an Arch or Arch-based distribution, you most likely
-have to install tk for this to work, this can be done by typing:
+Note: You need to install tk first
 
+Ubuntu(This counts for Mint as well):
+sudo apt install python3-tk
+
+Manjaro(This probably counts for Arch as well):
 sudo pacman -S tk
