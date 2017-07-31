@@ -7,6 +7,7 @@ from tkinter import *
 window = Tk()
 window.title("GCryptor")
 window.geometry("900x500+230+110")
+window.resizable(height=False, width=False)
 
 img = Image("photo", file="/usr/share/icons/gcryptor_icon.gif")
 window.tk.call("wm","iconphoto",window._w,img)
@@ -53,7 +54,6 @@ def main_menu():
     i12 = font.Font(family="impact", size=12)
     i12bold = font.Font(family="impact", size=12, weight=font.BOLD)
     i15 = font.Font(family="impact", size=15)
-    
 
     def encrypt_menu():
         encrypt_frame = Frame()
@@ -65,13 +65,13 @@ def main_menu():
         back = Button(encrypt_frame, height=3, width=6, bg="#a7a7a7", font=i12 , text="Back", command=lambda:[destroy_encrypt(), main_menu()]).grid(row=0, column=0, sticky=N+W)
 
         spacer1 = Frame(encrypt_frame, height=90).grid(row=1, column=0)
-
+        
         def browse_filesystem():
             global filename
             filename = filedialog.askopenfilename()
             filename_length = len(filename)
 
-            show_picked_file = Label(encrypt_frame, height=2, width=filename_length, anchor="w", bg="#a7a7a7", font=i11, text="%s: %s" % ("File",filename))
+            show_picked_file = Label(encrypt_frame, height=2, width=filename_length, text=filename, anchor="w", bg="#a7a7a7", font=i11)
             show_picked_file.grid(row=0, column=2, sticky=N)
             
             #Just so that it doesn't show a tiny grey block when the button is pressed but no file gets picked
@@ -100,7 +100,7 @@ def main_menu():
             filename = filedialog.askopenfilename()
             filename_length = len(filename)
 
-            show_picked_file = Label(decrypt_frame, height=2, width=filename_length, anchor="w", bg="#a7a7a7", font=i11, text="%s: %s" % ("File",filename))
+            show_picked_file = Label(decrypt_frame, height=2, width=filename_length, anchor="w", bg="#a7a7a7", font=i11, text=filename)
             show_picked_file.grid(row=0, column=2, sticky=N)
             
             #Just so that it doesn't show a tiny grey block when the button is pressed but no file gets picked
